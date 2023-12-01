@@ -1,6 +1,6 @@
 <div align="center">
 <h1 align="center">
-Camara Calibration
+Camera Calibration
 </h1>
 </div>
 <div align="center">
