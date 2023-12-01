@@ -37,6 +37,7 @@ Table of content
 1. Make sure you have the images of a checkerboard (with .png extension) placed in the ```data``` folder. 
 2. Make sure you have the OptiTrack .csv Take files in the ```data``` folder, named in order equal to the order of your images
 3. In ```calibratecam.py```, change
+
     ```python
     sizex = 9
     sizey = 14
