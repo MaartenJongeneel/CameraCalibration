@@ -38,13 +38,20 @@ Table of content
 2. Make sure you have the OptiTrack .csv Take files in the ```data``` folder, named in order equal to the order of your images
 3. In ```calibratecam.py```, change
     ```python
+    sizex = 9
+    sizey = 14
     sizes = 51.4 #size of one square in mm
     ```
-    to the correct size of your checkerboard
+    to the correct size of your checkerboard and the correct pattern (in this case 9x14 squares)
 4. Run calibratecam.py by opening a terminal and running
     ```bash
-    python3 calibratecam.py
+    python calibratecam.py
     ```
     This will create the ```camera_poses.csv``` file containing the checkerboard-to-camera poses. It will also give you the intrinsics camera matrix, but this matrix is currently not stored anywhere.
-5. Open Matlab, add the ```functions``` folder to your path, and run                ```CalibrateCam.m```. This now gives you the matrix ```GH_A```, the transformation matrix from camera casing to camera sensor.
+5. Open Matlab, add the ```functions``` folder to your path, and change the lines
+    ```matlab
+    %Name of OptiTrack object (casing frame)
+    ObjName = "RealSense002";
+    ```
+    to the correct name of the object you defined in OptiTrack (the casing frame).Then, run ```CalibrateCam.m```. This now gives you the matrix ```GH_A```, the transformation matrix from camera casing to camera sensor.
 # Contact

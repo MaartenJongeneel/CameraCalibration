@@ -17,8 +17,13 @@ clearvars;clc;
 % Robotics and Automation, vol. 5, no. 3, pp. 345-358, June 1989,
 % doi: 10.1109/70.34770.
 %% Load data
+addpath('functions');
+addpath('data');
 fncsv = dir('data/*.csv');
 fnpng = dir('data/*.png');
+
+%Name of OptiTrack object (casing frame)
+ObjName = "RealSense002";
 
 
 %Board-to-camera poses obtained from calibratecam.py
@@ -30,7 +35,7 @@ tel = 1;
 for ii = 1:length(fncsv)
     if startsWith(fncsv(ii).name,"Take") && endsWith(fncsv(ii).name,".csv")
         data = OptImport(append(fncsv(ii).folder,'\',fncsv(ii).name));
-        optitrack{1,tel} = data.POSTPROCESSING.RealSense002.transforms.ds;
+        optitrack{1,tel} = data.POSTPROCESSING.(ObjName).transforms.ds;
         tel = tel+1;
     end
 end
